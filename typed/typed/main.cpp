@@ -19,6 +19,20 @@ using namespace std;
 #define HD_NAME 'M';
 const int YEAR = 2019;
 
+// 方法的重载
+class Print{
+public:
+    void print(int i) {
+        cout << "int 类型" << i ;
+    }
+    void print(double i) {
+        cout << "double 类型" << i ;
+    }
+    void print(string c) {
+        cout << "char 类型" << c ;
+    }
+};
+
 // function 必须先声明
 void sayHello(string name) {
     cout << "hello function " << name << " in "<< YEAR << "\n";
@@ -62,6 +76,12 @@ public:
 };
 
 int main(int argc, const char * argv[]) {
+    
+    Print print;
+    
+    print.print(5);
+    print.print("jack");
+    print.print(3.16);
     
     time_t now = time(0);
     
