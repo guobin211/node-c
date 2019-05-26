@@ -14,6 +14,20 @@
 #include <ctime>
 
 // 命名空间
+namespace node_func {
+    void print(int v){
+        std::cout << "node version: " << v;
+    }
+}
+
+// 命名空间
+namespace js_func {
+    void print(int v){
+        std::cout << "js version Es" << v;
+    }
+}
+
+// 命名空间
 using namespace std;
 // 定义常量
 #define HD_NAME 'M';
@@ -77,9 +91,13 @@ public:
 
 int main(int argc, const char * argv[]) {
     
+    node_func::print(12.3);
+    
+    js_func::print(6);
+    
     Print print;
     
-    print.print(5);
+    print.print(55);
     print.print("jack");
     print.print(3.16);
     
