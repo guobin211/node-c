@@ -11,6 +11,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <ctime>
 
 // 命名空间
 using namespace std;
@@ -61,6 +62,19 @@ public:
 };
 
 int main(int argc, const char * argv[]) {
+    
+    time_t now = time(0);
+    
+    // 把 now 转换为字符串形式
+    char* dt = ctime(&now);
+    cout << dt << "\n";
+    
+    tm *ltm = localtime(&now);
+    
+    cout <<"年:" << 1900 + ltm -> tm_year << "\n";
+    cout <<"月:" << 1 + ltm -> tm_mon << "\n";
+    cout <<"日:" << ltm -> tm_mday << "\n";
+    cout <<"时间:" << ltm -> tm_hour << ":" << ltm -> tm_min <<":"<< ltm -> tm_sec;
     
     string today = "today is a nice day";
 //  创建文件
