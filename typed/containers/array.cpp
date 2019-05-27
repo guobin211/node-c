@@ -9,10 +9,10 @@ void logCode(int i) {
 };
 
 void takeTime() {
-  double a = 3.1415926;
-  double b = 2.178;
+  double a = 0.0001;
+  double b = 0.0002;
   
-  for (size_t i = 0; i < 10000000000; i++)
+  for (size_t i = 0; i < 9000000; i++)
   {
     a += b;
   }
@@ -29,29 +29,31 @@ int main()
   takeTime();
   time_t end = time(NULL);
   cout << end - start << "ms\n";
-  // cout << "hello array";
-  // array<int, 5> arr = {1, 2, 3, 4, 5};
+  cout << "hello array";
+  array<int, 5> arr = {1, 2, 3, 4, 5};
 
-  // cout << "array size: ";
-  // // 20
-  // cout << sizeof(arr) << "\n";
-  // // 5
-  // cout << arr.size() << "\n";
+  cout << "array size: ";
+  // 20
+  cout << sizeof(arr) << "\n";
+  // 5
+  cout << arr.size() << "\n";
 
-  // for (size_t i = 0; i < arr.size(); i++)
-  // {
-  //   cout << arr[i] << "\n";
-  // }
+  for (size_t i = 0; i < arr.size(); i++)
+  {
+    cout << arr[i] << "\n";
+  }
 
-  // cout << arr.at(2);
+  cout << arr.at(2);
 
-  // logCode(arr.back());
-  // logCode(arr.front());
+  arr[0]=12;
 
-  // for (auto i : arr)
-  // {
-  //   logCode(i);
-  // }
+  logCode(arr.back());
+  logCode(arr.front());
+
+  for (auto i : arr)
+  {
+    logCode(i);
+  }
 
 
   return 0;
