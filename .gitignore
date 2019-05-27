@@ -2,10 +2,7 @@
 # Prerequisites
 *.d
 
-typed/**/build
-
-typed/**/**.dSYM
-typed/**/array.dSYM
+src/**/*.dSYM/
 
 # Compiled Object files
 *.slo
