@@ -20,12 +20,16 @@ void print(int v)
 {
     std::cout << "node version: " << v;
 }
+void print(double v)
+{
+    std::cout << "node version: " << v;
+}
 } // namespace node_func
 
 // 命名空间
 namespace js_func
 {
-void print(int v)
+void print(double v)
 {
     std::cout << "js version Es" << v;
 }

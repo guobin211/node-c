@@ -1,8 +1,8 @@
 { 
   "targets": [ 
     { 
-      "target_name": "hello", 
-      "sources": [ "hello.cc" ]
+      "target_name": "arrayFn", 
+      "sources": [ "array.cpp" ]
     }
   ]
 }
