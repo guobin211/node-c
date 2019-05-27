@@ -25,13 +25,15 @@ void takeTime() {
 
 int main()
 {
+  array<string, 3> arr2 = {"a", "b", "c"};
+  cout << arr2.back();
+
   time_t start = time(NULL);
   takeTime();
   time_t end = time(NULL);
   cout << end - start << "ms\n";
   cout << "hello array";
   array<int, 5> arr = {1, 2, 3, 4, 5};
-
   cout << "array size: ";
   // 20
   cout << sizeof(arr) << "\n";

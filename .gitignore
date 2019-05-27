@@ -4,6 +4,9 @@
 
 typed/**/build
 
+typed/**/**.dSYM
+typed/**/array.dSYM
+
 # Compiled Object files
 *.slo
 *.lo
