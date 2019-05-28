@@ -1,9 +1,11 @@
 
 # Prerequisites
 *.d
-
+*.out
 src/**/*.dSYM/
-
+**/.DS_Store
+**/**/.DS_Store
+*.DS_Store
 # Compiled Object files
 *.slo
 *.lo
@@ -34,3 +36,5 @@ src/**/*.dSYM/
 *.exe
 *.out
 *.app
+.DS_Store
+
