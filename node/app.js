@@ -1,5 +1,6 @@
 const test = require('./test.js');
 const Square = require('./classes/Square');
+const Ess = require('./classes/Es');
 
 console.log('start');
 
@@ -23,3 +24,6 @@ console.log(square.state);
 
 console.log(square._state);
 
+const ess = new Ess();
+
+ess.say();
