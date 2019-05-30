@@ -1,5 +1,10 @@
 
 # Prerequisites
+venv
+.vscode
+cmake-build-debug
+.idea
+
 *.d
 *.out
 src/**/*.dSYM/

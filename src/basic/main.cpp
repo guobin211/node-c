@@ -14,25 +14,21 @@
 #include <ctime>
 
 // 命名空间
-namespace node_func
-{
-void print(int v)
-{
-    std::cout << "node version: " << v;
-}
-void print(double v)
-{
-    std::cout << "node version: " << v;
-}
+namespace node_func {
+    void print(int v) {
+        std::cout << "node version: " << v;
+    }
+
+    void print(double v) {
+        std::cout << "node version: " << v;
+    }
 } // namespace node_func
 
 // 命名空间
-namespace js_func
-{
-void print(double v)
-{
-    std::cout << "js version Es" << v;
-}
+namespace js_func {
+    void print(double v) {
+        std::cout << "js version Es" << v;
+    }
 } // namespace js_func
 
 // 命名空间
@@ -42,77 +38,70 @@ using namespace std;
 const int YEAR = 2019;
 
 // 方法的重载
-class Print
-{
+class Print {
 public:
-    void print(int i)
-    {
+    void print(int i) {
         cout << "int 类型" << i;
     }
-    void print(double i)
-    {
+
+    void print(double i) {
         cout << "double 类型" << i;
     }
-    void print(string c)
-    {
+
+    void print(string c) {
         cout << "char 类型" << c;
     }
 };
 
 // function 必须先声明
-void sayHello(string name)
-{
+void sayHello(string name) {
     cout << "hello function " << name << " in " << YEAR << "\n";
 }
 
-double payMoney(float price, int nums)
-{
+double payMoney(float price, int nums) {
     return price * nums;
 }
 
-int getMax(int a, int b)
-{
+int getMax(int a, int b) {
     return a > b ? a : b;
 }
 
-class Book
-{
+class Book {
 public:
     string title;
     string author;
     int pages;
+
     //  构造函数
-    Book(string aTitle)
-    {
+    Book(string aTitle) {
         cout << "父类 Book construct \n";
         title = aTitle;
         created = 20190528;
     }
-    string toString()
-    {
-        return "{title:\"" + title + "\", authon:\"" + author + "\", pages:" + to_string(pages) + ", created:" + to_string(created) + "}";
+
+    string toString() {
+        return "{title:\"" + title + "\", authon:\"" + author + "\", pages:" + to_string(pages) +
+               ", created:" + to_string(created) + "}";
     }
 
 private:
     int created;
 };
+
 // 继承
-class MathBook : public Book
-{
+class MathBook : public Book {
 public:
     // 子类构造函数要实现父类构造函数
-    MathBook() : Book("MathBook")
-    {
+    MathBook() : Book("MathBook") {
         cout << "子类 MathBook construct \n";
     }
-    string toString()
-    {
+
+    string toString() {
         return "MathBook \n";
     }
 };
 
-int main(int argc, const char *argv[])
-{
+int main(int argc, const char *argv[]) {
 
     node_func::print(12.3);
 
@@ -141,13 +130,10 @@ int main(int argc, const char *argv[])
     //  创建文件
     ofstream writer("today.txt");
 
-    if (!writer)
-    {
+    if (!writer) {
         cout << "Error Open File";
         return -1;
-    }
-    else
-    {
+    } else {
         // 写入string
         writer << today;
         writer.close();
@@ -156,16 +142,12 @@ int main(int argc, const char *argv[])
 
     char letter;
     ifstream reader("today.txt", ios::app);
-    if (!reader)
-    {
+    if (!reader) {
         cout << "Error Open File";
         return -1;
-    }
-    else
-    {
+    } else {
         // 读取txt
-        for (int i = 0; !reader.eof(); i++)
-        {
+        for (int i = 0; !reader.eof(); i++) {
             reader.get(letter);
             cout << letter;
         }
@@ -195,8 +177,7 @@ int main(int argc, const char *argv[])
 
     int sortNums[] = {2, 4, 6, 8, 10, 1, 3, 5, 7, 9};
 
-    for (int i = 0; i < 10; i++)
-    {
+    for (int i = 0; i < 10; i++) {
         cout << sortNums[i] << "\n";
     }
 
@@ -225,12 +206,9 @@ int main(int argc, const char *argv[])
     cout << "his rating is: " << rating << "\n";
     cout << "his money is: " << money << "\n";
 
-    if (man)
-    {
+    if (man) {
         cout << "he is Man\n";
-    }
-    else
-    {
+    } else {
         cout << "he is Women\n";
     }
     // string.find 查找索引 0 第一个匹配的
