@@ -80,7 +80,7 @@ public:
     }
 
     string toString() {
-        return "{title:\"" + title + "\", authon:\"" + author + "\", pages:" + to_string(pages) +
+        return "{title:\"" + title + "\", author:\"" + author + "\", pages:" + to_string(pages) +
                ", created:" + to_string(created) + "}";
     }
 
