@@ -5,6 +5,9 @@ venv
 cmake-build-debug
 .idea
 
+node_modules
+node/node_modules
+node/dist
 *.d
 *.out
 src/**/*.dSYM/
