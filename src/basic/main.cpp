@@ -6,30 +6,30 @@
 //  Copyright © 2019 guobin. All rights reserved.
 //
 
-#include <iostream>
 #include <cmath>
-#include <vector>
-#include <string>
-#include <fstream>
 #include <ctime>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
 
 // 命名空间
 namespace node_func {
-    void print(int v) {
-        std::cout << "node version: " << v;
-    }
+void print(int v) {
+    std::cout << "node version: " << v;
+}
 
-    void print(double v) {
-        std::cout << "node version: " << v;
-    }
-} // namespace node_func
+void print(double v) {
+    std::cout << "node version: " << v;
+}
+}  // namespace node_func
 
 // 命名空间
 namespace js_func {
-    void print(double v) {
-        std::cout << "js version Es" << v;
-    }
-} // namespace js_func
+void print(double v) {
+    std::cout << "js version Es" << v;
+}
+}  // namespace js_func
 
 // 命名空间
 using namespace std;
@@ -39,7 +39,7 @@ const int YEAR = 2019;
 
 // 方法的重载
 class Print {
-public:
+   public:
     void print(int i) {
         cout << "int 类型" << i;
     }
@@ -67,7 +67,7 @@ int getMax(int a, int b) {
 }
 
 class Book {
-public:
+   public:
     string title;
     string author;
     int pages;
@@ -84,13 +84,13 @@ public:
                ", created:" + to_string(created) + "}";
     }
 
-private:
+   private:
     int created;
 };
 
 // 继承
 class MathBook : public Book {
-public:
+   public:
     // 子类构造函数要实现父类构造函数
     MathBook() : Book("MathBook") {
         cout << "子类 MathBook construct \n";
@@ -102,7 +102,6 @@ public:
 };
 
 int main(int argc, const char *argv[]) {
-
     node_func::print(12.3);
 
     js_func::print(6);
