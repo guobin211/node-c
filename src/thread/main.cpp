@@ -17,5 +17,11 @@ int main(int argc, const char *argv[]) {
     sumOf(1, 2.2);
     float arr[] = {1, 2.5, 3.5, 4};
     cout << sizeof(arr) / sizeof(arr[0]) << endl;
+
+    int a = 3, b = 5, c = 6;
+    a = a + b;
+    b = a - b;
+    a = a - b;
+    cout << a << b << endl;
     return 0;
 }
