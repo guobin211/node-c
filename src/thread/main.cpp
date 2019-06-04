@@ -11,6 +11,9 @@
 using namespace std;
 void sumOf(float a) { cout << a << endl; }
 void sumOf(float a, float b) { cout << a + b << endl; }
+void hello(int n) {
+    cout << "hello library"<< n << endl;
+}
 
 int main(int argc, const char *argv[]) {
     sumOf(5.5);
@@ -23,5 +26,6 @@ int main(int argc, const char *argv[]) {
     b = a - b;
     a = a - b;
     cout << a << b << endl;
+    hello(3);
     return 0;
 }
