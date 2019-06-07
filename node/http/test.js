@@ -26,7 +26,7 @@ function testMap(num) {
   console.timeEnd();
 }
 
-testMap(500);
+// testMap(500);
 
 function testArr(num) {
   console.time();
@@ -43,4 +43,4 @@ function testArr(num) {
   console.timeEnd();
 }
 
-// testArr(500000);
+testArr(500000);
