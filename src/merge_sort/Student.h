@@ -17,9 +17,9 @@ struct Student{
     bool operator<(const Student &otherStudent){
         return score != otherStudent.score ? score < otherStudent.score : name < otherStudent.name;
     }
-    // <<操作符
+    // << 操作符重载
     friend ostream& operator<<(ostream &os, const Student &student){
-        os<<"Student: "<< student.name<< " "<< student.score <<endl;
+        os<<"Student: { name : \"" << student.name<< "\", age: "<< student.score << " }" << endl;
         return os;
     }
 };
