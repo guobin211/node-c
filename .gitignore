@@ -4,6 +4,7 @@ venv
 .vscode
 cmake-build-debug
 .idea
+package-lock.json
 
 node_modules
 node/node_modules
