@@ -6,6 +6,7 @@ cmake-build-debug
 .idea
 package-lock.json
 
+build
 node_modules
 node/node_modules
 node/dist
