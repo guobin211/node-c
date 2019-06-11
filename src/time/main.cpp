@@ -13,5 +13,5 @@ int main(int argc, const char *argv[]) {
         cout << asctime(gmtime(&now)) << endl;
     }
 
-    return 1;
+    return 0;
 }
