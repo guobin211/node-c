@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, const char *argv[]) {
     char rating = 'a';
     int num = 69;
     float fl = 123L;
