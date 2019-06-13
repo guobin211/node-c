@@ -1,50 +1,9 @@
-
-# Prerequisites
-venv
-.vscode
-cmake-build-debug
-.idea
-package-lock.json
-
-build
-node_modules
-node/node_modules
-node/dist
-*.d
-*.out
-src/**/*.dSYM/
-**/.DS_Store
-**/**/.DS_Store
-*.DS_Store
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
 .vscode/
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
+dist
+build
 *.out
-*.app
-.DS_Store
-
+cmake-build-debug
+node_modules
+*.dSYM
+package-lock.json
+yarn.lock
