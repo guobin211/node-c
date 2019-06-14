@@ -1,4 +1,5 @@
-#include <iostream>
+#include<iostream>
+#include<string>
 
 using namespace std;
 
@@ -13,11 +14,15 @@ int main(int argc, const char *argv[]) {
     fl = 123.4;
     db = 123.11L;
 
-    char nums[2];
+    char nums[4];
     nums[0] = 'j';
-    nums[1] = 'k';
-
-    cout << "Hello, World!" << endl;
-    cout << nums[0] << nums[1] << endl;
+    nums[1] = 'a';
+    nums[2] = 'c';
+    nums[3] = 'k';
+    
+    string name;
+    name = nums;
+    name = "jack";
+    cout << name << endl;
     return 0;
 }
