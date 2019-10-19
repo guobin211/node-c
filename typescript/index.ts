@@ -4,8 +4,8 @@ debugger;
 const res = b.map(n => n * 10);
 console.log(b);
 
-function demp(params: string) {
+function deep(params: string) {
     console.log(params.length);
 }
 
-demp('name');
+deep('name');
