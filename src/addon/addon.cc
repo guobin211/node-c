@@ -1,48 +1,58 @@
 #include <node.h>
 
-namespace demo {
+using namespace v8;
 
-using v8::Exception;
-using v8::FunctionCallbackInfo;
-using v8::Isolate;
-using v8::Local;
-using v8::Number;
-using v8::Object;
-using v8::String;
-using v8::Value;
-
-// 这是 "add" 方法的实现
-// 输入参数使用 const FunctionCallbackInfo<Value>& args 结构传入
-void Add(const FunctionCallbackInfo<Value>& args) {
-    Isolate* isolate = args.GetIsolate();
-
-    // 检查传入的参数的个数
-    if (args.Length() < 2) {
-        // 抛出一个错误并传回到 JavaScript
-        isolate->ThrowException(Exception::TypeError(
-            String::NewFromUtf8(isolate, "参数的数量错误")));
-        return;
+class AddonData {
+public:
+    AddonData(Isolate* isolate, Local<Object> exports):
+            call_count(0) {
+        // 将次对象的实例挂到 exports 上。
+        exports_.Reset(isolate, exports);
+        exports_.SetWeak(this, DeleteMe, WeakCallbackType::kParameter);
     }
 
-    // 检查参数的类型
-    if (!args[0]->IsNumber() || !args[1]->IsNumber()) {
-        isolate->ThrowException(Exception::TypeError(
-            String::NewFromUtf8(isolate, "参数错误")));
-        return;
+    ~AddonData() {
+        if (!exports_.IsEmpty()) {
+            // 重新设置引用以避免数据泄露。
+            exports_.ClearWeak();
+            exports_.Reset();
+        }
     }
 
-    // 执行操作
-    double value = args[0]->NumberValue() + args[1]->NumberValue();
-    Local<Number> num = Number::New(isolate, value);
+    // 每个插件的数据。
+    int call_count;
 
-    // 设置返回值
-    args.GetReturnValue().Set(num);
+private:
+    // 导出即将被回收时调用的方法。
+    static void DeleteMe(const WeakCallbackInfo<AddonData>& info) {
+        delete info.GetParameter();
+    }
+
+    // 导出对象弱句柄。该类的实例将与其若绑定的 exports 对象一起销毁。
+    v8::Persistent<v8::Object> exports_;
+};
+
+static void Method(const v8::FunctionCallbackInfo<v8::Value>& info) {
+    // 恢复每个插件实例的数据。
+    AddonData* data =
+            reinterpret_cast<AddonData*>(info.Data().As<External>()->Value());
+    data->call_count++;
+    info.GetReturnValue().Set((double)data->call_count);
 }
 
-void Init(Local<Object> exports) {
-    NODE_SET_METHOD(exports, "add", Add);
+// context-aware 初始化
+NODE_MODULE_INIT(/* exports, module, context */) {
+    Isolate* isolate = context->GetIsolate();
+
+    // 为该扩展实例的AddonData创建一个新的实例
+    AddonData* data = new AddonData(isolate, exports);
+    // 在 v8::External 中包裹数据，这样我们就可以将它传递给我们暴露的方法。
+    Local<External> external = External::New(isolate, data);
+
+    // 把 "Method" 方法暴露给 JavaScript，并确保其接收我们通过把 `external` 作为 FunctionTemplate 构造函数第三个参数时创建的每个插件实例的数据。
+    exports->Set(context,
+                 String::NewFromUtf8(isolate, "method", NewStringType::kNormal)
+                         .ToLocalChecked(),
+                 FunctionTemplate::New(isolate, Method, external)
+                         ->GetFunction(context).ToLocalChecked()).FromJust();
 }
-
-NODE_MODULE(NODE_GYP_MODULE_NAME, Init)
-
-}  // namespace demo

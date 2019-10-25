@@ -1,5 +1,5 @@
 //
-//  main.cpp
+//  main.native
 // 操作符重载
 //
 

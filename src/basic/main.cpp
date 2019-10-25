@@ -1,5 +1,5 @@
 //
-//  main.cpp
+//  main.native
 //  typed
 //
 //  Created by 郭斌 on 2019/5/25.
