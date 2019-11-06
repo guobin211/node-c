@@ -23,6 +23,6 @@ int main(int argc, char *argv[])
   {
     cout << price_of_rocket << endl;
   }
-
+  cout << "hello cpp with vim" << endl;
   return 0;
 }
