@@ -1,14 +1,11 @@
-.vscode/
-dist
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
 build
-*.out
-cmake-build-debug
+.vscode
+.idea
+dist
 node_modules
-*.dSYM
-package-lock.json
-yarn.lock
-.DS_Store
-.spec.ts
-out
-.idea/
+*.out
 
